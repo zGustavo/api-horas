@@ -5,9 +5,9 @@ const Encarregado = models.Encarregado;
 
 module.exports = {
     async store(req, res) {
-        const { name, setorId, funcao } = req.body;
+        const { name, setorId, funcao, encarregadoId } = req.body;
 
-        const funcionario = await Funcionario.create({ name, setorId, funcao });
+        const funcionario = await Funcionario.create({ name, setorId, funcao, encarregadoId });
         return res.json(funcionario);
     },
 
@@ -20,7 +20,7 @@ module.exports = {
             const funcionario = await Funcionario.findByPk(id, {
                 include: [Setor, Encarregado],
             });
-            return res.json(funcionario);
+            return res.json(`Nome: ${funcionario.name} ` + `Setor: ${funcionario.Setor.name} ` + `Chefia imediata: ${funcionario.Encarregado.name}`);
         }
     },
 };
