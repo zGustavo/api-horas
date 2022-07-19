@@ -3,6 +3,7 @@ const router = express.Router();
 
 const SetorController = require('../Controller/SetorController');
 const EncarregadoController = require('../Controller/EncarregadoController');
+const FuncionarioController = require('../Controller/FuncionarioController');
 
 
 // ROTAS
@@ -13,5 +14,8 @@ router.delete('/setores/:id', SetorController.delete);
 
 router.post('/setores/:setorId/encarregados', EncarregadoController.store);
 router.get('/setores/:setorId/encarregados', EncarregadoController.index);
+
+router.post('/funcionarios', FuncionarioController.store);
+router.get('/funcionarios/:id', FuncionarioController.index);
 
 module.exports = router;

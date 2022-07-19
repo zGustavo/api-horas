@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Encarregado.belongsTo(models.Setor);
+      Encarregado.hasMany(models.Funcionario);
     }
   }
   Encarregado.init({
