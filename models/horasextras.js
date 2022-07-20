@@ -11,12 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      HorasExtras.belongsTo(models.Funcionario);
     }
   }
   HorasExtras.init({
     qtdHoras: DataTypes.FLOAT,
     data: DataTypes.DATE,
-    justificativa: DataTypes.STRING
+    justificativa: DataTypes.STRING,
+    funcionarioId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'HorasExtras',

@@ -17,6 +17,9 @@ module.exports = {
       justificativa: {
         type: Sequelize.STRING
       },
+      funcionarioId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

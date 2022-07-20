@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Funcionario.belongsTo(models.Setor);
       Funcionario.belongsTo(models.Encarregado);
+      Funcionario.hasMany(models.HorasExtras);
     }
   }
   Funcionario.init({
