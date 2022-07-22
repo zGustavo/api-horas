@@ -22,9 +22,16 @@ module.exports = {
             }
         })
 
-        for (let i = 0; i < horasExtras.length; i++) {
+        horasExtras.forEach((h) => {
+            totalFuncHorasExtras += h.qtdHoras;
+        })
+/*         for (let i = 0; i < horasExtras.length; i++) {
             totalFuncHorasExtras += horasExtras[i].qtdHoras
         }
+*/      
+        const date = new Date();
+        const today = date.getDate();
+        console.log(`Hoje é dia: ${today}`);
 
         if((totalFuncHorasExtras + Number(qtdHoras)) > 60) {
             return res.send('LIMITE ULTRAPASSADO');
@@ -33,7 +40,7 @@ module.exports = {
                 funcionarioId, qtdHoras, justificativa
             });
             return res.json(novaHora);
-        }
+        } 
 
         
     },
@@ -48,6 +55,7 @@ module.exports = {
         const funcionario = await Funcionario.findByPk(funcionarioId, {
             include: [HorasExtras],
         });
+
         return res.json(funcionario);
     },
 };

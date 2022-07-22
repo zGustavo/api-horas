@@ -20,9 +20,9 @@ module.exports = {
       funcionarioId: {
         type: Sequelize.INTEGER
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+      status: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       updatedAt: {
         allowNull: false,

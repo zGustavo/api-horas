@@ -19,8 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     data: DataTypes.DATE,
     justificativa: DataTypes.STRING,
     funcionarioId: DataTypes.INTEGER,
+    status: DataTypes.BOOLEAN,
   }, {
     sequelize,
+    timestamps: true,
+    createdAt: 'data',
     modelName: 'HorasExtras',
   });
   return HorasExtras;
